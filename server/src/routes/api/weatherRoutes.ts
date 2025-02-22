@@ -8,22 +8,28 @@ import WeatherService from '../../service/weatherService.js';
 router.post('/', async (req, res) => {
   // TODO: GET weather data from city name
   try {
-    const { cityName } = req.body;
-    if (!cityName) {
-      return res.status(400).json({ error: 'City name is required' });
-    }
-
-    // GET weather data from city name
+    const cityName = req.body.cityName;
     const weatherData = await WeatherService.getWeatherForCity(cityName);
-    // TODO: save city to search history
     await HistoryService.addCity(cityName);
-
-    res.json(weatherData);
+    return res.json(weatherData);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to retrieve weather data' });
+    return res.status(500).json({ error: 'Failed to retrieve weather data' });
   }
-});
+} );
+    // GET weather data from city name
+    router.get('/history', async (req, res) => {
+      try {
+        const cityName = req.query.cityName as string;
+        const weather = await WeatherService.getWeatherForCity(cityName);
+        return res.status(200).json(weather);
+      } catch (error) {
+        return res.status(500).json({ error: 'Failed to retrieve weather data' })
+      }
+    });
+    // TODO: save city to search history
+
+
+  
 
 // TODO: GET search history  --> endpoint: /api/weather/history w/ GET method
 router.get('/history', async (req, res) => {
