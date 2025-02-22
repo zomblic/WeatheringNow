@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
   
 
 // TODO: GET search history  --> endpoint: /api/weather/history w/ GET method
-router.get('/history', async (req, res) => {
+router.get('/history', async (_req, res) => {
   try {
     const history = await HistoryService.getCities();
     res.json(history);
