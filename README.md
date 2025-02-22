@@ -18,7 +18,7 @@ The application’s front end has already been created. It's your job to build t
 
 * After registering for a new API key, you may need to wait up to 2 hours for that API key to activate.
 
-* For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys).
+* For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys). [completed]
 
 ## User Story
 
